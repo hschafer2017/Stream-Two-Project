@@ -1,24 +1,6 @@
-// function flash(b) {
-//     if (bopPrompt() == "Bop It") {
-//         document.getElementById("bops").innerHTML =
-//             "Bop It!"
-//         $("h3").removeClass("bops");
-//         console.log("bopping")
-//     }
-//     if (bopPrompt() == "Twist It") {
-//         document.getElementById("twists").innerHTML =
-//             "Twist It!"
-//         $("h3").removeClass("twists");
-//         console.log("twisting")
-//     }
-//     if (bopPrompt() == "Pull It") {
-//         document.getElementById("pulls").innerHTML =
-//             "Pull It!"
-//         $("h3").removeClass("pulls");
-//         console.log("pulling")
-//     }
-// }
-// // console.log(flash())
+
+
+// console.log(flash())
 
 
 //     // if ($("#bop").attr("src") == "bop1.jpg") {
@@ -72,6 +54,29 @@ function bopPrompt(a) {
     return commands[Math.floor(Math.random() * commands.length)];
 }
 
+function flash(command) {
+    if (command == "Bop It") {
+        document.getElementById("bops").innerHTML =
+            "Bop It!"
+        $("h3").removeClass("bops");
+        console.log("bopping")
+    }
+    if (command == "Twist It") {
+        document.getElementById("twists").innerHTML =
+            "Twist It!"
+        $("h3").removeClass("twists");
+        console.log("twisting")
+    }
+    if (command == "Pull It") {
+        document.getElementById("pulls").innerHTML =
+            "Pull It!"
+        $("h3").removeClass("pulls");
+        console.log("pulling")
+    }
+}
+
+let score = 0
+
 function startGame() {
     
     let command = bopPrompt();
@@ -80,13 +85,39 @@ function startGame() {
     let pullButton = document.getElementById('pullIt').getAttribute("data-type");
     let twistButton = document.getElementById('twistIt').getAttribute("data-type");
     
+flash(command); 
+//     {
+//     if (command == "Bop It") {
+//         document.getElementById("bops").innerHTML =
+//             "Bop It!"
+//         $("h3").removeClass("bops");
+//         console.log("bopping")
+//     }
+//     if (command == "Twist It") {
+//         document.getElementById("twists").innerHTML =
+//             "Twist It!"
+//         $("h3").removeClass("twists");
+//         console.log("twisting")
+//     }
+//     if (command == "Pull It") {
+//         document.getElementById("pulls").innerHTML =
+//             "Pull It!"
+//         $("h3").removeClass("pulls");
+//         console.log("pulling")
+//     }
+// }
+
+
     document.getElementById('bopIt').onclick = function() {
         if (command == bopButton) {
             console.log("Correct Bop")
+            score++ 
+            console.log(score)
             startGame()
             
         }else {
             console.log("You Lose")
+            console.log(score)
             
         }
     }
@@ -94,10 +125,13 @@ function startGame() {
     document.getElementById('pullIt').onclick = function() {
         if (command == pullButton) {
             console.log("Correct Pull")
+            score++
+            console.log(score)
             startGame()
             
         }else {
             console.log("You Lose")
+            console.log(score)
             
         }
     }
@@ -105,10 +139,13 @@ function startGame() {
     document.getElementById('twistIt').onclick = function() {
         if (command == twistButton) {
             console.log("Correct Twist")
+            score++ 
+            console.log(score)
             startGame()
             
         }else {
             console.log("You Lose")
+            console.log(score)
             
         }
     }
