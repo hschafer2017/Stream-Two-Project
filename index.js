@@ -1,5 +1,3 @@
-
-
 // console.log(flash())
 
 
@@ -56,20 +54,17 @@ function bopPrompt(a) {
 
 function flash(command) {
     if (command == "Bop It") {
-        document.getElementById("bops").innerHTML =
-            "Bop It!"
+        
         $("h3").removeClass("bops");
         console.log("bopping")
     }
     if (command == "Twist It") {
-        document.getElementById("twists").innerHTML =
-            "Twist It!"
+        
         $("h3").removeClass("twists");
         console.log("twisting")
     }
     if (command == "Pull It") {
-        document.getElementById("pulls").innerHTML =
-            "Pull It!"
+        
         $("h3").removeClass("pulls");
         console.log("pulling")
     }
@@ -78,78 +73,85 @@ function flash(command) {
 let score = 0
 
 function startGame() {
-    
+
+    document.getElementById("bops").classList.add("bops");
+    document.getElementById("pulls").classList.add("pulls");
+    document.getElementById("twists").classList.add("twists");
+    document.getElementById("losing").classList.add("losing");
     let command = bopPrompt();
-    console.log(command); 
+    console.log(command);
     let bopButton = document.getElementById('bopIt').getAttribute("data-type");
     let pullButton = document.getElementById('pullIt').getAttribute("data-type");
     let twistButton = document.getElementById('twistIt').getAttribute("data-type");
-    
-flash(command); 
-//     {
-//     if (command == "Bop It") {
-//         document.getElementById("bops").innerHTML =
-//             "Bop It!"
-//         $("h3").removeClass("bops");
-//         console.log("bopping")
-//     }
-//     if (command == "Twist It") {
-//         document.getElementById("twists").innerHTML =
-//             "Twist It!"
-//         $("h3").removeClass("twists");
-//         console.log("twisting")
-//     }
-//     if (command == "Pull It") {
-//         document.getElementById("pulls").innerHTML =
-//             "Pull It!"
-//         $("h3").removeClass("pulls");
-//         console.log("pulling")
-//     }
-// }
+    flash(command);
 
 
     document.getElementById('bopIt').onclick = function() {
         if (command == bopButton) {
             console.log("Correct Bop")
-            score++ 
+            score++
             console.log(score)
+            document.getElementById("bops").classList.add("bops");
             startGame()
-            
-        }else {
-            console.log("You Lose")
-            console.log(score)
-            
+
+        }
+        else {
+            document.getElementById("bops").classList.add("bops")
+            document.getElementById("pulls").classList.add("pulls")
+            document.getElementById("twists").classList.add("twists");
+            document.getElementById("losing").innerHTML =
+                "You Lost! Press start to play again!";
+            $("h3").removeClass("losing");
+            console.log("You Lose");
+            console.log(score);
+
         }
     }
-    
+
     document.getElementById('pullIt').onclick = function() {
         if (command == pullButton) {
             console.log("Correct Pull")
             score++
             console.log(score)
+            document.getElementById("pulls").classList.add("pulls");
             startGame()
-            
-        }else {
-            console.log("You Lose")
-            console.log(score)
-            
+
+        }
+        else {
+            document.getElementById("bops").classList.add("bops")
+            document.getElementById("pulls").classList.add("pulls")
+            document.getElementById("twists").classList.add("twists");
+            document.getElementById("losing").innerHTML =
+                "You Lost! Press Start to play again!";
+            $("h3").removeClass("losing");
+            console.log("You Lose");
+            console.log(score);
+
         }
     }
-    
+
     document.getElementById('twistIt').onclick = function() {
         if (command == twistButton) {
             console.log("Correct Twist")
-            score++ 
+            score++
             console.log(score)
+            document.getElementById("twists").classList.add("twists");
             startGame()
-            
-        }else {
+
+        }
+        else {
+            document.getElementById("bops").classList.add("bops")
+            document.getElementById("pulls").classList.add("pulls")
+            document.getElementById("twists").classList.add("twists");
+            document.getElementById("losing").innerHTML =
+                "You Lost! Press start to play again!";
+            $("h3").removeClass("losing");
             console.log("You Lose")
             console.log(score)
-            
+
         }
     }
-    
+
 }
 
 
@@ -161,4 +163,4 @@ flash(command);
 
 
 // Remember to credit Stack overflow for Randomizer
-// using data-type is much easier than using a function within the button 
+// using data-type is much easier than using a function within the button
