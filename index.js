@@ -1,65 +1,94 @@
 let commands = ["Bop It", "Twist It", "Pull It"];
 
-function bopPrompt(command) {
+function bopPrompt(a) {
 
     return commands[Math.floor(Math.random() * commands.length)];
+}
+console.log(bopPrompt());
 // Remember to credit Stack overflow for Randomizer 
 
-    if (command == "Bop It") {
-        document.getElementById("#bops").innerHTML =
-            $("h3").removeClass(".bops");
+function flash(b) {
+    if (bopPrompt() == "Bop It") {
+        document.getElementById("bops").innerHTML =
+            "Bop It!"
+        $("h3").removeClass("bops");
+        console.log("bopping")
     }
-    else if (command == "Twist It") {
-        document.getElementById("#twists").innerHTML =
-            $("h3").removeClass(".twists");
+    else if (bopPrompt() == "Twist It") {
+        document.getElementById("twists").innerHTML =
+            "Twist It!"
+        $("h3").removeClass("twists");
+        console.log("twisting")
     }
-    else if (command == "Pull It") {
-        document.getElementById("#pulls").innerHTML =
-            $("h3").removeClass(".pulls");
+    else if (bopPrompt() == "Pull It") {
+        document.getElementById("pulls").innerHTML =
+            "Pull It!"
+        $("h3").removeClass("pulls");
+        console.log("pulling")
+
+    } else {
+        console.log("flash fail")
     }
 }
 
-console.log(bopPrompt());
-console.log(typeof(bopPrompt()));
+
+// console.log(bopPrompt());
+// console.log(typeof(bopPrompt()));
 
 
 function bopIt() {
-    if ($("#bop").attr("src") == "bop1.jpg") {
-        $("#bop").attr("src", "bop2.jpg");
-    return true 
-    } else {
-        return false
+    // if ($("#bop").attr("src") == "bop1.jpg") {
+    //     $("#bop").attr("src", "bop2.jpg");
+        console.log('bop it');
+        return true; 
+    //     } else {
+    //         return false;
+    //     }
+
     }
-    console.log('bop it');
-}
+
 
 function pullIt() {
-    if ($("#pull").attr("src") == "pull1.jpg") {
-        $("#pull").attr("src", "pull2.jpg");
-        return true
-    } else {
-        return false 
-    }
-    console.log('pull it')
+    // if ($("#pull").attr("src") == "pull1.jpg") {
+    //     $("#pull").attr("src", "pull2.jpg");
+        console.log('pull it');
+        return true;
+    // }
+    // else {
+    //     return false;
+    // }
 }
 
 function twistIt() {
-    if ($("#twist").attr("src") == "twist1.jpg") {
-        $("#twist").attr("src", "twist2.jpg");
-        return true 
-    } else {
-        return false 
-    }
-    console.log('twist it')
+    // if ($("#twist").attr("src") == "twist1.jpg") {
+    //     $("#twist").attr("src", "twist2.jpg");
+        console.log('twist it');
+        return true;
+    // }
+    // else {
+    //     return false;
+    // }
 }
-// Remember to credit Antonja for the return/true/false in if statements
+// Remember to credit Antonjia for the return/true/false in if statements
 function startGame() {
-    
-    bopPrompt();
-    for (let i = 0; i <= 500; i++) {
-        
+flash();
+    // bopPrompt();
+    for (let i = 0; i <= 5; i++) {
 
-        if (commands[0] && bopIt()) {
+        // if (bopPrompt() == "Bop It") {
+        //     alert("bopit")
+        // }
+
+        // if (bopPrompt() == "Twist It") {
+        //     alert("twistit")
+        // }
+
+        // if (bopPrompt() == "Pull It") {
+        //     alert("pullit")
+        // }
+
+
+        if (bopPrompt() == "Bop It" && bopIt()) {
             // $("#bop").attr("src, bop1.jpg").fade;
             console.log("bop");
             if (i <= 500) {
@@ -70,10 +99,10 @@ function startGame() {
 
             }
             // continue loop & credit stack overflow for continue/break part
-        }
-        else if (commands[2] && pullIt()) {
+    }
+        else if (bopPrompt() == "Twist It" && twistIt()) {
             // $("#pull").attr("src, pull1.jpg").fade;
-            console.log("pull");
+            console.log("twist");
             if (i <= 500) {
                 continue;
             }
@@ -82,10 +111,10 @@ function startGame() {
 
             }
             // continue loop 
-        }
-        else if (commands[1] && twistIt()) {
+    }
+        else if (bopPrompt() == "Pull It" && pullIt()) {
             // $("#twist").attr("src, twist1.jpg").fade;
-            console.log("twist");
+            console.log("pull");
             if (i <= 500) {
                 continue;
             }
@@ -95,10 +124,11 @@ function startGame() {
             // continue loop 
         }
         else {
-            i = 501;
+            // i = 501;
+            break;
             console.log("You lost!");
             document.getElementById("losing").innerHTML =
-                "You Lost!"
+                "You Lost!";
             $("h3").removeClass("losing");
             // stop loop
         }
