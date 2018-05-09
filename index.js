@@ -56,23 +56,27 @@ function flash(command) {
     if (command == "Bop It") {
 
         $("h3").removeClass("bops");
-        console.log("bopping")
+        console.log("bopping");
     }
     if (command == "Twist It") {
 
         $("h3").removeClass("twists");
-        console.log("twisting")
+        console.log("twisting");
     }
     if (command == "Pull It") {
 
         $("h3").removeClass("pulls");
-        console.log("pulling")
+        console.log("pulling");
     }
 }
 
 
 function startGame() {
+scoreReset();
+score = 1;
+playGame(); }
 
+function playGame() {
         document.getElementById("bops").classList.add("bops");
         document.getElementById("pulls").classList.add("pulls");
         document.getElementById("twists").classList.add("twists");
@@ -87,89 +91,92 @@ function startGame() {
 
         document.getElementById('bopIt').onclick = function() {
             if (command == bopButton) {
-                console.log("Correct Bop")
-                console.log(score)
+                console.log("Correct Bop");
+                console.log(score);
                 scoreBoard();
                 document.getElementById("bops").classList.add("bops");
-                startGame()
+                playGame();
 
             }
             else {
-                document.getElementById("bops").classList.add("bops")
-                document.getElementById("pulls").classList.add("pulls")
+                document.getElementById("bops").classList.add("bops");
+                document.getElementById("pulls").classList.add("pulls");
                 document.getElementById("twists").classList.add("twists");
                 document.getElementById("losing").innerHTML =
                     "You Lost! Press start to play again!";
                 $("h3").removeClass("losing");
                 console.log("You Lose");
                 console.log(score);
-                // score = 0; 
+                // break playGame();
+                return false;
+                // startGame();
 
             }
-        }
+        };
 
         document.getElementById('pullIt').onclick = function() {
             if (command == pullButton) {
                 console.log("Correct Pull");
-                console.log(score)
+                console.log(score);
                 scoreBoard();
                 document.getElementById("pulls").classList.add("pulls");
-                startGame()
+                playGame();
 
             }
             else {
-                document.getElementById("bops").classList.add("bops")
-                document.getElementById("pulls").classList.add("pulls")
+                document.getElementById("bops").classList.add("bops");
+                document.getElementById("pulls").classList.add("pulls");
                 document.getElementById("twists").classList.add("twists");
                 document.getElementById("losing").innerHTML =
                     "You Lost! Press Start to play again!";
                 $("h3").removeClass("losing");
                 console.log("You Lose");
                 console.log(score);
-                // score = 0; 
-
+                return false;
+                // startGame();
             }
-        }
+        };
 
         document.getElementById('twistIt').onclick = function() {
             if (command == twistButton) {
-                console.log("Correct Twist")
-                console.log(score)
+                console.log("Correct Twist");
+                console.log(score);
                 scoreBoard();
                 document.getElementById("twists").classList.add("twists");
-                startGame()
+                playGame();
 
             }
             else {
-                document.getElementById("bops").classList.add("bops")
-                document.getElementById("pulls").classList.add("pulls")
+                document.getElementById("bops").classList.add("bops");
+                document.getElementById("pulls").classList.add("pulls");
                 document.getElementById("twists").classList.add("twists");
                 document.getElementById("losing").innerHTML =
                     "You Lost! Press start to play again!";
                 $("h3").removeClass("losing");
-                console.log("You Lose")
-                console.log(score)
-                // score = 0;
+                console.log("You Lose");
+                console.log(score);
+                return false;
+                // startGame();
 
             }
-        }
+        };
 
     }
 
 
-let score = 1;
 
+ let score = 1;
 function scoreBoard() {
     let scoreBox = document.getElementById("score");
     scoreBox.textContent = score;
     score++;
 }
 
-// function scoreReset() {
-//     let scoreBox = document.getElementById("score")
-//     scoreBox.textContent = score; 
-//     score = 0
-// }
+function scoreReset() {
+    let score = 0;
+    let scoreBox = document.getElementById("score");
+    scoreBox.textContent = score; 
+}
 
 
 
