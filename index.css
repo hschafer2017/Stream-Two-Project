@@ -1,3 +1,9 @@
+body {
+    text-align: center; 
+    color: #fafafa;
+    background-color: black;
+}
+
 .bops {
     display: none;
 }
@@ -10,3 +16,24 @@
 .losing {
     display:none;
 }
+.score{
+    text-align:right;
+    padding-right: 40px;
+}
+.game-buttons {
+    text-align:center;
+}
+.hotkeys {
+    text-align: right;
+    padding-right:40px;
+}
+.row {
+    text-align: center
+}
+button {
+    width: 110px;
+}
+.disable {
+    
+}
+/*For small media, make the buttons smaller*/

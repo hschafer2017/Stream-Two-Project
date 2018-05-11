@@ -8,20 +8,28 @@ function bopPrompt(a) {
 
 function flash(command) {
     if (command == "Bop It") {
-
         $("h3").removeClass("bops");
         console.log("bopping");
-    }
+        // setTimeout(function() {
+        //     endGame()
+        // }, 3000);
+    } 
     if (command == "Twist It") {
-
         $("h3").removeClass("twists");
         console.log("twisting");
+        // setTimeout(function() {
+        //     endGame()
+        // }, 3000);
     }
     if (command == "Pull It") {
-
         $("h3").removeClass("pulls");
         console.log("pulling");
+        // setTimeout(function() {
+        //     endGame()
+        // }, 3000);
+
     }
+
 }
 
 
@@ -32,6 +40,9 @@ function startGame() {
 }
 
 function playGame() {
+    document.getElementById("bopIt").disabled = false
+    document.getElementById("twistIt").disabled = false
+    document.getElementById("pullIt").disabled = false
     document.getElementById("bops").classList.add("bops");
     document.getElementById("pulls").classList.add("pulls");
     document.getElementById("twists").classList.add("twists");
@@ -44,6 +55,7 @@ function playGame() {
     flash(command);
 
 
+
     document.getElementById('bopIt').onclick = function() {
         if (command == bopButton) {
             console.log("Correct Bop");
@@ -54,20 +66,12 @@ function playGame() {
 
         }
         else {
-            document.getElementById("bops").classList.add("bops");
-            document.getElementById("pulls").classList.add("pulls");
-            document.getElementById("twists").classList.add("twists");
-            document.getElementById("losing").innerHTML =
-                "You Lost! Press start to play again!";
-            $("h3").removeClass("losing");
             console.log("You Lose");
             console.log(score);
-           
-            
-             
-
+            endGame();
         }
     };
+
 
     document.getElementById('pullIt').onclick = function() {
         if (command == pullButton) {
@@ -79,19 +83,13 @@ function playGame() {
 
         }
         else {
-            document.getElementById("bops").classList.add("bops");
-            document.getElementById("pulls").classList.add("pulls");
-            document.getElementById("twists").classList.add("twists");
-            document.getElementById("losing").innerHTML =
-                "You Lost! Press Start to play again!";
-            $("h3").removeClass("losing");
             console.log("You Lose");
-            console.log(score); 
-            
-            
-             
+            console.log(score);
+            endGame();
         }
     };
+
+
     document.getElementById('twistIt').onclick = function() {
         if (command == twistButton) {
             console.log("Correct Twist");
@@ -102,18 +100,14 @@ function playGame() {
 
         }
         else {
-            document.getElementById("bops").classList.add("bops");
-            document.getElementById("pulls").classList.add("pulls");
-            document.getElementById("twists").classList.add("twists");
-            document.getElementById("losing").innerHTML =
-                "You Lost! Press start to play again!";
-            $("h3").removeClass("losing");
             console.log("You Lose");
             console.log(score);
-             
-            
+            endGame();
+
         }
     }
+
+
     // HOT KEYS
     document.onkeyup = function(a) {
         if (a.which === 65) {
@@ -128,14 +122,10 @@ function playGame() {
 
             }
             else {
-                document.getElementById("bops").classList.add("bops");
-                document.getElementById("pulls").classList.add("pulls");
-                document.getElementById("twists").classList.add("twists");
-                document.getElementById("losing").innerHTML =
-                    "You Lost! Press start to play again!";
-                $("h3").removeClass("losing");
                 console.log("You Lose");
                 console.log(score);
+                endGame()
+
             }
         }
         else if (a.which === 80) {
@@ -149,14 +139,11 @@ function playGame() {
                 playGame();
             }
             else {
-                document.getElementById("bops").classList.add("bops");
-                document.getElementById("pulls").classList.add("pulls");
-                document.getElementById("twists").classList.add("twists");
-                document.getElementById("losing").innerHTML =
-                    "You Lost! Press start to play again!";
-                $("h3").removeClass("losing");
+                endGame()
                 console.log("You Lose");
                 console.log(score);
+
+
             }
         }
         else if (a.which === 66) {
@@ -170,15 +157,13 @@ function playGame() {
                 playGame();
             }
             else {
-                document.getElementById("bops").classList.add("bops");
-                document.getElementById("pulls").classList.add("pulls");
-                document.getElementById("twists").classList.add("twists");
-                document.getElementById("losing").innerHTML =
-                    "You Lost! Press start to play again!";
-                $("h3").removeClass("losing");
+                endGame()
                 console.log("You Lose");
                 console.log(score);
             }
+        }
+        else {
+            endGame();
         }
     }
 }
@@ -197,6 +182,29 @@ function scoreReset() {
     let scoreBox = document.getElementById("score");
     scoreBox.textContent = score;
 }
+
+function timer() {
+    if (flash()) {
+        setTimeout(function() {
+            endGame()
+        }, 3000);
+    }
+
+}
+
+function endGame() {
+    document.getElementById("bops").classList.add("bops");
+    document.getElementById("pulls").classList.add("pulls");
+    document.getElementById("twists").classList.add("twists");
+    document.getElementById("bopIt").disabled = true
+    document.getElementById("twistIt").disabled = true
+    document.getElementById("pullIt").disabled = true
+    document.getElementById("losing").innerHTML =
+        "You Lost! Press start to play again!";
+    $("h3").removeClass("losing");
+   document.onkeyup = function(a) { (a.which != 80 && a.which!=65 && a.which != 66) }
+}
+
 
 // Remember to credit Stack overflow for Randomizer
 // using data-type is much easier than using a function within the button
