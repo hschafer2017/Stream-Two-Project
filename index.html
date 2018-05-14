@@ -15,6 +15,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
     <link rel="stylesheet" href="index.css" type="text/css" />
     <title>Bop It Game</title>
 </head>
@@ -42,28 +43,24 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-4">
-                <button id="twistIt" class="btn btn-warning btn-lg disable" data-type="Twist It">Twist It</button>
+                <button id="twistIt" onClick= "gameButton()" class="btn btn-warning btn-lg disable" data-type="Twist It">Twist It</button>
             </div>
             <div class="col-xs-4 ">
-                <button id="bopIt" class="btn btn-danger btn-lg disable" data-type="Bop It">Bop It</button>
+                <button id="bopIt" onClick= "gameButton()" class="btn btn-danger btn-lg disable" data-type="Bop It">Bop It</button>
                 </div>
                 <div class="col-xs-4 ">
-                    <button id="pullIt" class="btn btn-info btn-lg disable" data-type="Pull It">Pull It</button>
+                    <button id="pullIt" onClick = "gameButton()" class="btn btn-info btn-lg disable" data-type="Pull It">Pull It</button>
                 </div>
             </div>
         </div>
-        
-
-
-
         <!--<p id = "timer"></p>-->
 
         <div class="container">
             <div class="hotkeys hidden-xs">
-                <h4>Keys:</h4>
-                <p>A: Twist It</p>
-                <p>B: Bop It</p>
-                <p>P: Pull It</p>
+                        <h4>Keys:</h4>
+                        <p>A: Twist It</p>
+                        <p>B: Bop It</p>
+                        <p>P: Pull It</p>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>

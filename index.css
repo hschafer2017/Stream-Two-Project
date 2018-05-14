@@ -2,6 +2,7 @@ body {
     text-align: center; 
     color: #fafafa;
     background-color: black;
+    font-family: 'Gothic A1', sans-serif;
 }
 
 .bops {
@@ -33,7 +34,5 @@ body {
 button {
     width: 110px;
 }
-.disable {
-    
-}
+
 /*For small media, make the buttons smaller*/
