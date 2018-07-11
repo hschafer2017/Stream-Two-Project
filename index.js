@@ -170,8 +170,6 @@ function endGame() {
     document.getElementById("bopIt").disabled = true
     document.getElementById("twistIt").disabled = true
     document.getElementById("pullIt").disabled = true
-    document.getElementById("losing").innerHTML =
-        "You Lost! Press start to play again!";
     $("h3").removeClass("losing");
     document.onkeyup = function(a) {
         (a.which != 80 && a.which != 65 && a.which != 66)

@@ -17,6 +17,9 @@ body {
 .losing {
     display:none;
 }
+.timeout {
+    display:none;
+}
 .score{
     text-align:right;
     padding-right: 40px;
