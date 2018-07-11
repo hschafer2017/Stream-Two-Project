@@ -1,4 +1,6 @@
 let commands = ["Bop It", "Twist It", "Pull It"];
+let display = document.querySelector('#timer');
+let score = 1;
 
 function bopPrompt(a) {
 
@@ -8,40 +10,24 @@ function bopPrompt(a) {
 function flash(command) {
     if (command == "Bop It") {
         $("h3").removeClass("bops");
-        console.log("bopping");
     }
     if (command == "Twist It") {
         $("h3").removeClass("twists");
-        console.log("twisting");
     }
     if (command == "Pull It") {
         $("h3").removeClass("pulls");
-        console.log("pulling");
-    }
-}
-
-function timer() {
-    console.log("start timer")
-    let start = setTimeout(function() {
-        console.log("timing")
-        endGame()
-    }, 4000);
-
-    function gameButton() {
-        console.log("cleared")
-        clearTimeout(start);
-        timer();
     }
 }
 
 function startGame() {
+    endGame.called = false;
     scoreReset();
     score = 1;
+    startTimer(30, display)
     playGame();
 }
 
 function playGame() {
-    timer();
     document.getElementById("bopIt").disabled = false
     document.getElementById("twistIt").disabled = false
     document.getElementById("pullIt").disabled = false
@@ -50,7 +36,6 @@ function playGame() {
     document.getElementById("twists").classList.add("twists");
     document.getElementById("losing").classList.add("losing");
     let command = bopPrompt();
-    console.log(command);
     let bopButton = document.getElementById('bopIt').getAttribute("data-type");
     let pullButton = document.getElementById('pullIt').getAttribute("data-type");
     let twistButton = document.getElementById('twistIt').getAttribute("data-type");
@@ -59,15 +44,11 @@ function playGame() {
 
     document.getElementById('bopIt').onclick = function() {
         if (command == bopButton) {
-            console.log("Correct Bop");
             scoreBoard();
             document.getElementById("bops").classList.add("bops");
-            clear();
             playGame();
-
         }
         else {
-            console.log("You Lose");
             endGame();
         }
     };
@@ -75,15 +56,11 @@ function playGame() {
 
     document.getElementById('pullIt').onclick = function() {
         if (command == pullButton) {
-            console.log("Correct Pull");
             scoreBoard();
             document.getElementById("pulls").classList.add("pulls");
-
             playGame();
-
         }
         else {
-            console.log("You Lose");
             endGame();
         }
     };
@@ -91,15 +68,11 @@ function playGame() {
 
     document.getElementById('twistIt').onclick = function() {
         if (command == twistButton) {
-            console.log("Correct Twist");
             scoreBoard();
             document.getElementById("twists").classList.add("twists");
-            clear();
             playGame();
-
         }
         else {
-            console.log("You Lose");
             endGame();
 
         }
@@ -111,54 +84,38 @@ function playGame() {
         if (a.which === 65) {
             document.getElementById("twistIt").getAttribute("data-type");
             if (command == twistButton && a.which === 65) {
-                console.log("Correct Twist");
-                console.log(score);
                 scoreBoard();
                 document.getElementById("twists").classList.add("twists");
                 playGame();
-
             }
             else {
-                console.log("You Lose");
-                endGame()
-
+                endGame();
             }
         }
         else if (a.which === 80) {
             document.getElementById("pullIt").getAttribute("data-type");
             if (command == pullButton && a.which === 80) {
-                console.log("Correct Pull");
-                console.log(score);
                 scoreBoard();
                 document.getElementById("pulls").classList.add("pulls");
                 playGame();
             }
             else {
-                endGame()
-                console.log("You Lose");
-
-
+                endGame();
             }
         }
         else if (a.which === 66) {
             document.getElementById("bopIt").getAttribute("data-type");
             if (command == bopButton && a.which === 66) {
-                console.log("Correct Bop");
-                console.log(score);
                 scoreBoard();
                 document.getElementById("bops").classList.add("bops");
                 playGame();
             }
             else {
-                endGame()
-                console.log("You Lose");
+                endGame();
             }
         }
-    }
+    };
 }
-
-
-let score = 1;
 
 function scoreBoard() {
     let scoreBox = document.getElementById("score");
@@ -173,42 +130,40 @@ function scoreReset() {
 }
 
 
-function clear() {
-    console.log("cleared")
-    clearTimeout(timer);
-    //     setTimeout(function() {
-    // console.log("reset")
-    //     endGame()
-    // }, 4000);
+function startTimer(duration, display) {
+    let timer = duration,
+        minutes, seconds;
+    let timesRan = 0;
+    var interval = setInterval(function() {
+        timesRan += 1;
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
 
-    // timer(console.log("timer restart"))
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+
+        if (timesRan === 31) {
+            endGame();
+            clearInterval(interval);
+        }
+        if (endGame.called === true) {
+            console.log('end');
+            clearInterval(interval);
+        }   
+        
+    }, 1000);
 }
 
 
-
-// if (playGame()) {
-//     console.log("timer reset")
-//     clearTimeout(4000); 
-//     timer(); 
-// } 
-// if (endGame()) {
-//     return false; 
-// }
-
-// function timerOne() {
-// var timer = new Timer (function() {
-// endGame()   
-// }, 3000); 
-// if (!playGame()) {
-//     timer.reset (3000); 
-//     timer.start();
-// } else {
-//     endGame(); 
-// } 
-// }
-// }
-
 function endGame() {
+    endGame.called = true;
     document.getElementById("bops").classList.add("bops");
     document.getElementById("pulls").classList.add("pulls");
     document.getElementById("twists").classList.add("twists");

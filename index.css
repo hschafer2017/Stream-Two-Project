@@ -31,8 +31,14 @@ body {
 .row {
     text-align: center
 }
+
 button {
-    width: 110px;
+    width: 105px;
 }
 
 /*For small media, make the buttons smaller*/
+@media (max: 361) {
+    .btn {
+        width:100%;      
+    }
+}
