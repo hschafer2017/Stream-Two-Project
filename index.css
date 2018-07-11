@@ -1,36 +1,48 @@
 body {
-    text-align: center; 
+    text-align: center;
     color: #fafafa;
     background-color: black;
     font-family: 'Gothic A1', sans-serif;
+    position: absolute;
+    z-index: 15;
+    top: 25%;
+    margin: 0;
 }
 
 .bops {
     display: none;
 }
+
 .pulls {
     display: none;
 }
+
 .twists {
     display: none;
 }
+
 .losing {
-    display:none;
+    display: none;
 }
+
 .timeout {
-    display:none;
+    display: none;
 }
-.score{
-    text-align:right;
+
+.score {
+    text-align: right;
     padding-right: 40px;
 }
+
 .game-buttons {
-    text-align:center;
+    text-align: center;
 }
+
 .hotkeys {
     text-align: right;
-    padding-right:40px;
+    padding-right: 40px;
 }
+
 .row {
     text-align: center
 }
@@ -40,8 +52,9 @@ button {
 }
 
 /*For small media, make the buttons smaller*/
+
 @media (max: 361) {
     .btn {
-        width:100%;      
+        width: 100%;
     }
 }
