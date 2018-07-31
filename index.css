@@ -1,12 +1,9 @@
 body {
     text-align: center;
+    height: 100%;
     color: #fafafa;
     background-color: black;
     font-family: 'Gothic A1', sans-serif;
-    position: absolute;
-    z-index: 15;
-    top: 25%;
-    margin: 0;
 }
 
 .bops {
@@ -31,7 +28,7 @@ body {
 
 .score {
     text-align: right;
-    padding-right: 40px;
+    padding-right: 10%;
 }
 
 .game-buttons {
@@ -40,7 +37,7 @@ body {
 
 .hotkeys {
     text-align: right;
-    padding-right: 40px;
+    padding-right: 10%;
 }
 
 .row {
@@ -56,5 +53,8 @@ button {
 @media (max: 361) {
     .btn {
         width: 100%;
+    }
+    body {
+        left: 15%;
     }
 }
