@@ -179,10 +179,9 @@ function endGame() {
 }
 
 
-// Modal on load for tablet and mobile 
+// Modal on load 
 function loadModal() {
     $('#rotateScreenModal').modal('show');
-    
 }
 
 
