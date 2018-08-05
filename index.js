@@ -26,9 +26,9 @@ function flash(command) {
 function startGame() {
     endGame.called = false;
     scoreReset();
-    score = 1;
-    highScore = localStorage.getItem(localStorageName) == null ? 0 :
+    highScore = localStorage.getItem(localStorageName) == null ? -1 :
         localStorage.getItem(localStorageName);
+    score = 1;
     startTimer(30, display)
     playGame();
 }
@@ -182,17 +182,20 @@ function endGame() {
     document.onkeyup = function(a) {
         (a.which != 80 && a.which != 65 && a.which != 66)
     }
-    highScore = Math.max(score, highScore);
+    let scoreSet = score - 1
+    highScore = Math.max(scoreSet, highScore);
     localStorage.setItem(localStorageName, highScore);
-    console.log(localStorage); 
-    console.log(highScore);
+    let highScoreBox = document.getElementById("highScore");
+    highScoreBox.textContent = highScore;
 }
 
 
 // Modal on load 
 function loadModal() {
     $('#rotateScreenModal').modal('show');
+    
+    // Clears high score 
+    window.onload = window.localStorage.clear();
 }
-
 
 // using data-type is much easier than using a function within the button
