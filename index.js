@@ -1,6 +1,8 @@
 let commands = ["Bop It", "Twist It", "Pull It"];
 let display = document.querySelector('#timer');
 let score = 1;
+var localStorageName = "bopitscore";
+var highScore;
 
 
 
@@ -25,6 +27,8 @@ function startGame() {
     endGame.called = false;
     scoreReset();
     score = 1;
+    highScore = localStorage.getItem(localStorageName) == null ? 0 :
+        localStorage.getItem(localStorageName);
     startTimer(30, display)
     playGame();
 }
@@ -123,6 +127,8 @@ function scoreBoard() {
     let scoreBox = document.getElementById("score");
     scoreBox.textContent = score;
     score++;
+
+
 }
 
 function scoreReset() {
@@ -176,6 +182,10 @@ function endGame() {
     document.onkeyup = function(a) {
         (a.which != 80 && a.which != 65 && a.which != 66)
     }
+    highScore = Math.max(score, highScore);
+    localStorage.setItem(localStorageName, highScore);
+    console.log(localStorage); 
+    console.log(highScore);
 }
 
 
