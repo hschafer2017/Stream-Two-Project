@@ -149,8 +149,6 @@ function highScoreBoard() {
     highScoreBox.textContent = highScore;
 }
 
-
-
 function startTimer(duration, display) {
     let timer = duration,
         minutes, seconds;
@@ -175,13 +173,11 @@ function startTimer(duration, display) {
             clearInterval(interval);
         }
         if (endGame.called === true) {
-            console.log('end');
             clearInterval(interval);
         }
 
     }, 1000);
 }
-
 
 function endGame() {
     endGame.called = true;

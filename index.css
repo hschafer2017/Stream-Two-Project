@@ -1,9 +1,17 @@
+html,
 body {
     text-align: center;
     height: 100%;
-    color: #fafafa;
-    background-color: black;
+    color: #333;
+    background: linear-gradient(to top right, #c69cf4, #654ea3);
     font-family: 'Gothic A1', sans-serif;
+}
+
+.panel-body {
+    background: #fafafa;
+    border-radius: 4px;
+    box-shadow: 0px 0px 25px #666;
+
 }
 
 /*MODAL*/
@@ -12,6 +20,7 @@ body {
     color: #333;
     text-align: left;
 }
+
 .modal-body {
     font-size: 20px;
 }
@@ -19,12 +28,19 @@ body {
 .modal-footer {
     text-align: right;
 }
+
 .header {
     font-size: 26px;
 }
 
+/*GAME*/
+
+#timer {
+    font-size: 26px;
+}
+
 .btn {
-    box-shadow: 0px 0px 25px #d3d3d3;
+    box-shadow: 0px 0px 25px #c0c0c0;
     border-radius: 2px;
 }
 
@@ -49,12 +65,23 @@ body {
 }
 
 .score {
-    text-align: right;
-    padding-right: 10%;
+    font-size: 20px;
 }
 
 .game-buttons {
     text-align: center;
+}
+
+.btn-lg {
+    padding: 10px 10px;
+}
+
+.btn {
+    white-space: normal;
+}
+
+button {
+    width: 20vw;
 }
 
 .hotkeys {
@@ -71,7 +98,6 @@ button {
 }
 
 /*For small media, make the buttons smaller*/
-
 
 @media (max: 361) {
     .btn {

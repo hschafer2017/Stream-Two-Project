@@ -24,61 +24,79 @@
     <br>
     <br>
     <br>
-    <h1>Let's Play Bop It!</h1>
-    <br>
-    <br>
     <div class="container">
-        <div class="row">
-            <button class="btn btn-success btn-lg" onClick="startGame()">Start</button>
-
-            <h5 class="score">High Score: <span id="highScore">0</span></h5>
-            <h5 class="score">Your Score: <span id="score">0</span></h5>
-            
-            <div class="hotkeys hidden-xs hidden-sm">
-                <h4>Keys:</h4>
-                <p>A: Twist It</p>
-                <p>B: Bop It</p>
-                <p>P: Pull It</p>
+        <div class="panel-body">
+            <h1>Let's Play Bop It!</h1>
+            <br>
+            <br>
+            <div class="row">
+                <button class="btn btn-success btn-lg" onClick="startGame()">Start</button>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2"></div>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <br><br>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                            <h5 class="score">High Score: <span id="highScore">0</span></h5>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <h5 class="score">Your Score: <span id="score">0</span></h5>
+                        </div>
+                        <div id="timer"></div>
+                    </div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                    <table>
+                        <tr>
+                            <th>
 
-
-        <div id="timer"></div>
-    </div>
-    <br>
-    </div>
-    <h3 id="losing" class="losing">You Lost! Press start to play again!</h3>
-    <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2"></div>
-        <div class="col-xs-8 col-sm-8 col-md-8 game-buttons">
-            <h3 id="bops" class="bops">Bop It!</h3>
-            <h3 id="pulls" class="pulls">Pull It!</h3>
-            <h3 id="twists" class="twists">Twist It!</h3>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2"></div>
-    </div>
-    <br>
-    <!--Game Buttons-->
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-4 col-sm-4">
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="hotkeys hidden-xs hidden-sm">
+                                    <h4>Keys:</h4>
+                                    <p>A: Twist It</p>
+                                    <p>B: Bop It</p>
+                                    <p>P: Pull It</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 <br>
-                <button id="twistIt" onClick="gameButton()" class="btn btn-warning btn-lg disable" data-type="Twist It">Twist It</button>
             </div>
-            <div class="col-xs-4 col-sm-4 ">
-                <br>
-                <button id="bopIt" onClick="gameButton()" class="btn btn-danger btn-lg disable" data-type="Bop It">Bop It</button>
+            <h3 id="losing" class="losing">You Lost! Press start to play again!</h3>
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2"></div>
+                <div class="col-xs-8 col-sm-8 col-md-8 game-buttons">
+                    <h3 id="bops" class="bops">Bop It!</h3>
+                    <h3 id="pulls" class="pulls">Pull It!</h3>
+                    <h3 id="twists" class="twists">Twist It!</h3>
+                </div>
             </div>
-            <div class="col-xs-4 col-sm-4">
-                <br>
-                <button id="pullIt" onClick="gameButton()" class="btn btn-info btn-lg disable" data-type="Pull It">Pull It</button>
+
+            <!--Game Buttons-->
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    <br>
+                    <button id="twistIt" onClick="gameButton()" class="btn btn-warning btn-lg disable" data-type="Twist It">Twist It</button>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 ">
+                    <br>
+                    <button id="bopIt" onClick="gameButton()" class="btn btn-danger btn-lg disable" data-type="Bop It">Bop It</button>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    <br>
+                    <button id="pullIt" onClick="gameButton()" class="btn btn-info btn-lg disable" data-type="Pull It">Pull It</button>
+                </div>
             </div>
+            <br>
+            <br>
         </div>
     </div>
-    <br>
-    <br>
-
-
+    <br><br>
     <!--SCREEN ROTATION MODAL-->
     <div class="modal fade" tabindex="-1" role="dialog" id='rotateScreenModal'>
         <div class="modal-dialog" role="document">
@@ -102,8 +120,6 @@
     </div>
 
 
-
-    <!--<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>-->
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="jasminetests.js"></script>
 
