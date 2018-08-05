@@ -2,6 +2,8 @@ let commands = ["Bop It", "Twist It", "Pull It"];
 let display = document.querySelector('#timer');
 let score = 1;
 
+
+
 function bopPrompt(a) {
 
     return commands[Math.floor(Math.random() * commands.length)];
@@ -156,8 +158,8 @@ function startTimer(duration, display) {
         if (endGame.called === true) {
             console.log('end');
             clearInterval(interval);
-        }   
-        
+        }
+
     }, 1000);
 }
 
@@ -177,5 +179,11 @@ function endGame() {
 }
 
 
-// Remember to credit Stack overflow for Randomizer
+// Modal on load for tablet and mobile 
+function loadModal() {
+    $('#rotateScreenModal').modal('show');
+    
+}
+
+
 // using data-type is much easier than using a function within the button

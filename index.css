@@ -6,6 +6,22 @@ body {
     font-family: 'Gothic A1', sans-serif;
 }
 
+/*MODAL*/
+
+.modal {
+    color: #333;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+
+.btn {
+    box-shadow: 0px 0px 25px #d3d3d3;
+    border-radius: 2px;
+}
+
 .bops {
     display: none;
 }
@@ -49,6 +65,12 @@ button {
 }
 
 /*For small media, make the buttons smaller*/
+
+@media (min:736) {
+    #rotateScreenModal {
+        display: none;
+    }
+}
 
 @media (max: 361) {
     .btn {

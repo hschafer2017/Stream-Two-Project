@@ -12,7 +12,7 @@
     <!--<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>-->
     <link rel="stylesheet" href="Libraries/bootstrap.min.css" type="text/css" />
     <script type="text/javascript" src="Libraries/jquery.min.js"></script>
-   <script type="text/javascript" src="Libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Libraries/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Libraries/hover-min.css" type="text/css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
@@ -20,7 +20,7 @@
     <title>Bop It Game</title>
 </head>
 
-<body>
+<body onload='loadModal()'>
     <br>
     <br>
     <br>
@@ -73,10 +73,33 @@
             <p>P: Pull It</p>
         </div>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+
+    <div class="modal fade hidden-lg hidden-md" tabindex="-1" role="dialog" id='rotateScreenModal'>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" style = 'text-align: right;' aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Welcome to Bop It!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Turn your tablet or phone sideways for a better gaming experience!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success modal-btn" data-dismiss="modal">Let's Play!</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>-->
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="jasminetests.js"></script>
+
 </body>
 
 </html>
