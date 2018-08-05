@@ -1,6 +1,6 @@
 let commands = ["Bop It", "Twist It", "Pull It"];
 let display = document.querySelector('#timer');
-let score = 1;
+let score = 0;
 var localStorageName = "bopitscore";
 var highScore;
 
@@ -26,9 +26,7 @@ function flash(command) {
 function startGame() {
     endGame.called = false;
     scoreReset();
-    highScore = localStorage.getItem(localStorageName) == null ? -1 :
-        localStorage.getItem(localStorageName);
-    score = 1;
+    score = 0;
     startTimer(30, display)
     playGame();
 }
@@ -124,9 +122,10 @@ function playGame() {
 }
 
 function scoreBoard() {
+    score++;
     let scoreBox = document.getElementById("score");
     scoreBox.textContent = score;
-    score++;
+
 
 
 }
@@ -136,6 +135,20 @@ function scoreReset() {
     let scoreBox = document.getElementById("score");
     scoreBox.textContent = score;
 }
+
+function highScoreBoard() {
+    if (localStorage.getItem(localStorageName) == null) {
+        highScore = 0;
+    }
+    else {
+        highScore = localStorage.getItem(localStorageName);
+    }
+    highScore = Math.max(score, highScore);
+    localStorage.setItem(localStorageName, highScore);
+    let highScoreBox = document.getElementById("highScore");
+    highScoreBox.textContent = highScore;
+}
+
 
 
 function startTimer(duration, display) {
@@ -182,18 +195,14 @@ function endGame() {
     document.onkeyup = function(a) {
         (a.which != 80 && a.which != 65 && a.which != 66)
     }
-    let scoreSet = score - 1
-    highScore = Math.max(scoreSet, highScore);
-    localStorage.setItem(localStorageName, highScore);
-    let highScoreBox = document.getElementById("highScore");
-    highScoreBox.textContent = highScore;
+    highScoreBoard();
 }
 
 
 // Modal on load 
 function loadModal() {
     $('#rotateScreenModal').modal('show');
-    
+
     // Clears high score 
     window.onload = window.localStorage.clear();
 }
