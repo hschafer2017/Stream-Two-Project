@@ -202,5 +202,3 @@ function loadModal() {
     // Clears high score 
     window.onload = window.localStorage.clear();
 }
-
-// using data-type is much easier than using a function within the button
