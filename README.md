@@ -76,7 +76,7 @@ if (endGame.called === true) {
 All commands and the game inspiration came from the original Bop It game. (No copyright infringement intended, as this is for educational use only.)
 
 ## Acknowledgements 
-I followed [this](https://phaserjs.com/saving-high-score tutorial) for the high score function in local storage and [this](https://stackoverflow.com/questions/46770009/need-to-clear-local-storage-on-browser-tab-closed-not-on-refresh) tutorial for clearing it out. These were both modified to fit the specific needs of this project. 
+I followed [this](https://phaserjs.com/saving-high-score) tutorial for the high score function in local storage and [this](https://stackoverflow.com/questions/46770009/need-to-clear-local-storage-on-browser-tab-closed-not-on-refresh) tutorial for clearing it out. These were both modified to fit the specific needs of this project. 
 
 The startTimer function and the bopPrompt functions were both modeled after functions found on Stack Overflow, however they were significantly modified for the use of this project. 
 
