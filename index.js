@@ -1,8 +1,8 @@
 let commands = ["Bop It", "Twist It", "Pull It"];
-let display = document.querySelector('#timer');
+let display = document.querySelector("#timer");
 let score = 0;
-var localStorageName = "bopitscore";
-var highScore;
+let localStorageName = "bopitscore";
+let highScore;
 
 
 
@@ -12,13 +12,13 @@ function bopPrompt(a) {
 }
 
 function flash(command) {
-    if (command == "Bop It") {
+    if (command === "Bop It") {
         $("h3").removeClass("bops");
     }
-    if (command == "Twist It") {
+    if (command === "Twist It") {
         $("h3").removeClass("twists");
     }
-    if (command == "Pull It") {
+    if (command === "Pull It") {
         $("h3").removeClass("pulls");
     }
 }
@@ -27,27 +27,30 @@ function startGame() {
     endGame.called = false;
     scoreReset();
     score = 0;
-    startTimer(30, display)
+    startTimer(30, display);
     playGame();
 }
 
 function playGame() {
-    document.getElementById("bopIt").disabled = false
-    document.getElementById("twistIt").disabled = false
-    document.getElementById("pullIt").disabled = false
+    document.getElementById("bopIt").disabled = false;
+    document.getElementById("twistIt").disabled = false;
+    document.getElementById("pullIt").disabled = false;
     document.getElementById("bops").classList.add("bops");
     document.getElementById("pulls").classList.add("pulls");
     document.getElementById("twists").classList.add("twists");
     document.getElementById("losing").classList.add("losing");
     let command = bopPrompt();
-    let bopButton = document.getElementById('bopIt').getAttribute("data-type");
-    let pullButton = document.getElementById('pullIt').getAttribute("data-type");
-    let twistButton = document.getElementById('twistIt').getAttribute("data-type");
+    let bopButton = 
+        document.getElementById("bopIt").getAttribute("data-type");
+    let pullButton = 
+        document.getElementById("pullIt").getAttribute("data-type");
+    let twistButton = 
+        document.getElementById("twistIt").getAttribute("data-type");
     flash(command);
 
 
-    document.getElementById('bopIt').onclick = function() {
-        if (command == bopButton) {
+    document.getElementById("bopIt").onclick = function() {
+        if (command === bopButton) {
             scoreBoard();
             document.getElementById("bops").classList.add("bops");
             playGame();
@@ -58,8 +61,8 @@ function playGame() {
     };
 
 
-    document.getElementById('pullIt').onclick = function() {
-        if (command == pullButton) {
+    document.getElementById("pullIt").onclick = function() {
+        if (command === pullButton) {
             scoreBoard();
             document.getElementById("pulls").classList.add("pulls");
             playGame();
@@ -70,8 +73,8 @@ function playGame() {
     };
 
 
-    document.getElementById('twistIt').onclick = function() {
-        if (command == twistButton) {
+    document.getElementById("twistIt").onclick = function() {
+        if (command === twistButton) {
             scoreBoard();
             document.getElementById("twists").classList.add("twists");
             playGame();
@@ -80,14 +83,14 @@ function playGame() {
             endGame();
 
         }
-    }
+    };
 
 
     // HOT KEYS
     document.onkeyup = function(a) {
         if (a.which === 65) {
             document.getElementById("twistIt").getAttribute("data-type");
-            if (command == twistButton && a.which === 65) {
+            if (command === twistButton && a.which === 65) {
                 scoreBoard();
                 document.getElementById("twists").classList.add("twists");
                 playGame();
@@ -98,7 +101,7 @@ function playGame() {
         }
         else if (a.which === 80) {
             document.getElementById("pullIt").getAttribute("data-type");
-            if (command == pullButton && a.which === 80) {
+            if (command === pullButton && a.which === 80) {
                 scoreBoard();
                 document.getElementById("pulls").classList.add("pulls");
                 playGame();
@@ -109,7 +112,7 @@ function playGame() {
         }
         else if (a.which === 66) {
             document.getElementById("bopIt").getAttribute("data-type");
-            if (command == bopButton && a.which === 66) {
+            if (command === bopButton && a.which === 66) {
                 scoreBoard();
                 document.getElementById("bops").classList.add("bops");
                 playGame();
@@ -137,7 +140,7 @@ function scoreReset() {
 }
 
 function highScoreBoard() {
-    if (localStorage.getItem(localStorageName) == null) {
+    if (localStorage.getItem(localStorageName) === null) {
         highScore = 0;
     }
     else {
@@ -153,7 +156,7 @@ function startTimer(duration, display) {
     let timer = duration,
         minutes, seconds;
     let timesRan = 0;
-    var interval = setInterval(function() {
+    let interval = setInterval(function() {
         timesRan += 1;
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
@@ -167,11 +170,14 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             timer = duration;
         }
-
+        
+        // if timer runs out, calls endGame to end the game 
         if (timesRan === 31) {
             endGame();
             clearInterval(interval);
         }
+        
+        // if endGame is called (i.e. incorrect answer), clears timer
         if (endGame.called === true) {
             clearInterval(interval);
         }
@@ -184,13 +190,13 @@ function endGame() {
     document.getElementById("bops").classList.add("bops");
     document.getElementById("pulls").classList.add("pulls");
     document.getElementById("twists").classList.add("twists");
-    document.getElementById("bopIt").disabled = true
-    document.getElementById("twistIt").disabled = true
-    document.getElementById("pullIt").disabled = true
+    document.getElementById("bopIt").disabled = true;
+    document.getElementById("twistIt").disabled = true;
+    document.getElementById("pullIt").disabled = true;
     $("h3").removeClass("losing");
     document.onkeyup = function(a) {
-        (a.which != 80 && a.which != 65 && a.which != 66)
-    }
+        (a.which !== 80 && a.which !== 65 && a.which !== 66);
+    };
     highScoreBoard();
 }
 

@@ -81,29 +81,19 @@ body {
 }
 
 button {
-    width: 20vw;
+    width: 19vw;
 }
 
 .hotkeys {
     text-align: right;
-    padding-right: 10%;
 }
 
 .row {
     text-align: center
 }
 
-button {
-    width: 105px;
-}
-
-/*For small media, make the buttons smaller*/
-
-@media (max: 361) {
-    .btn {
-        width: 100%;
-    }
-    body {
-        left: 15%;
+@media (max-width: 423px) {
+    button {
+       width: 81px;
     }
 }
