@@ -34,6 +34,10 @@ function startGame() {
 
 
 function playGame() {
+    // Disables start button to prevent timer restarting
+    document.getElementById("startButton").disabled = true;
+    
+    // Enables game buttons 
     document.getElementById("bopIt").disabled = false;
     document.getElementById("twistIt").disabled = false;
     document.getElementById("pullIt").disabled = false;
@@ -200,10 +204,13 @@ function endGame() {
     document.getElementById("twists").classList.add("twists");
     $("h3").removeClass("losing");
     
-    // Disables buttons to prevent cheating
+    // Disables game buttons to prevent cheating
     document.getElementById("bopIt").disabled = true;
     document.getElementById("twistIt").disabled = true;
     document.getElementById("pullIt").disabled = true;
+    
+    // Enables start button to restart game 
+    document.getElementById("startButton").disabled = false;
     
     // Disables hotkeys to prevent cheating
     document.onkeyup = function(a) {
