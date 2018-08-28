@@ -10,6 +10,13 @@ This game is used for **educational purposes only** for a school coding project.
 # Demo
 A live demo for this project can be found [here](https://hschafer2017.github.io/Stream-Two-Project/). This project is hosted on GitHub pages. 
 
+# Technologies 
+    1. JavaScript 
+    2. jQuery 
+    3. HTML
+    4. CSS
+    5. Bootstrap
+
 # UX 
 This project is modeled after the children's game, Bop It, which was a favorite of mine growing up. It shouts a command and then you either have to push the button in the middle (Bop It), twist the left end (Twist It), or pull the lever on the right side (Pull It). I wanted to create a similar experience with an online version that would allow you to play on both the desktop and on your mobile device. 
 
