@@ -11,11 +11,11 @@ This game is used for **educational purposes only** for a school coding project.
 A live demo for this project can be found [here](https://hschafer2017.github.io/Stream-Two-Project/). This project is hosted on GitHub pages. 
 
 # Technologies 
-    1. JavaScript 
-    2. jQuery 
-    3. HTML
-    4. CSS
-    5. Bootstrap
+1. JavaScript 
+2. jQuery 
+3. HTML
+4. CSS
+5. Bootstrap (3.3.7)
 
 # UX 
 This project is modeled after the children's game, Bop It, which was a favorite of mine growing up. It shouts a command and then you either have to push the button in the middle (Bop It), twist the left end (Twist It), or pull the lever on the right side (Pull It). I wanted to create a similar experience with an online version that would allow you to play on both the desktop and on your mobile device. 
@@ -83,5 +83,7 @@ All commands and the game inspiration came from the original Bop It game. (No co
 
 ## Acknowledgements 
 I followed [this](https://phaserjs.com/saving-high-score) tutorial for the high score function in local storage and [this](https://stackoverflow.com/questions/46770009/need-to-clear-local-storage-on-browser-tab-closed-not-on-refresh) tutorial for clearing it out. These were both modified to fit the specific needs of this project. 
+
+I referenced [this](https://medium.com/@melwinalm/crcreating-keyboard-shortcuts-in-javascripteating-keyboard-shortcuts-in-javascript-763ca19beb9e) blog to create the hot key functionality. The hot key functions were heavily modified for the nature of this project. 
 
 The startTimer function and the bopPrompt functions were both modeled after functions found on Stack Overflow, however they were significantly modified for the use of this project. 

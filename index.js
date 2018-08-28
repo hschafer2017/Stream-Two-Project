@@ -36,7 +36,7 @@ function startGame() {
 function playGame() {
     // Disables start button to prevent timer restarting
     document.getElementById("startButton").disabled = true;
-    
+
     // Enables game buttons 
     document.getElementById("bopIt").disabled = false;
     document.getElementById("twistIt").disabled = false;
@@ -46,11 +46,11 @@ function playGame() {
     document.getElementById("twists").classList.add("twists");
     document.getElementById("losing").classList.add("losing");
     let command = chooseRandomCommand();
-    let bopItButton = 
+    let bopItButton =
         document.getElementById("bopIt").getAttribute("data-type");
-    let pullItButton = 
+    let pullItButton =
         document.getElementById("pullIt").getAttribute("data-type");
-    let twistItButton = 
+    let twistItButton =
         document.getElementById("twistIt").getAttribute("data-type");
     showCommand(command);
 
@@ -180,13 +180,13 @@ function startTimerControls(duration, timerDisplay) {
         if (--timer < 0) {
             timer = duration;
         }
-        
+
         // if timer runs out, calls endGame to end the game 
         if (timesRan === 31) {
             endGame();
             clearInterval(interval);
         }
-        
+
         // if endGame is called (i.e. incorrect answer), clears timer
         if (endGame.called === true) {
             clearInterval(interval);
@@ -203,15 +203,15 @@ function endGame() {
     document.getElementById("pulls").classList.add("pulls");
     document.getElementById("twists").classList.add("twists");
     $("h3").removeClass("losing");
-    
+
     // Disables game buttons to prevent cheating
     document.getElementById("bopIt").disabled = true;
     document.getElementById("twistIt").disabled = true;
     document.getElementById("pullIt").disabled = true;
-    
+
     // Enables start button to restart game 
     document.getElementById("startButton").disabled = false;
-    
+
     // Disables hotkeys to prevent cheating
     document.onkeyup = function(a) {
         (a.which !== 80 && a.which !== 65 && a.which !== 66);
